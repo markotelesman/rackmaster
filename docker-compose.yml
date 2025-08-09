@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  # Naziv našeg servisa (aplikacije)
+  rackmaster-web:
+    # Gradi image koristeći Dockerfile u trenutnom direktoriju (.)
+    build: .
+    # Ime kontejnera kada se pokrene
+    container_name: rackmaster
+    # Poveži port 5000 na tvom računalu s portom 5000 u kontejneru
+    ports:
+      - "5000:5000"
+    # Poveži trenutni direktorij s /app direktorijem u kontejneru
+    # Ovo omogućuje da se promjene u kodu odmah vide u aplikaciji bez potrebe za ponovnim buildanjem
+    volumes:
+      - .:/app

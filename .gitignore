@@ -1,0 +1,11 @@
+# SQLite baza podataka
+*.sqlite
+database.sqlite
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtualni environment (ako ga koristiš)
+venv/
+.venv/

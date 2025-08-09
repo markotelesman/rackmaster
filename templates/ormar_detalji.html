@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RackMaster - Detalji Ormara</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Specifični stilovi za vizualizaciju ormara */
+        .rack-container {
+            width: 250px; /* Širina ormara */
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            position: relative;
+            display: flex;
+            flex-direction: column-reverse; /* Rack uniti idu od dna prema vrhu */
+            margin: 20px auto; /* Centriranje ormara */
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .rack-unit {
+            height: 20px; /* Visina jednog U */
+            border-top: 1px dashed #ccc;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #888;
+        }
+        .occupied {
+            background-color: #0d6efd; /* Plava boja za zauzete unite */
+            color: white;
+            border-top: 1px solid #0a58ca;
+        }
+        .equipment-label {
+            font-size: 11px;
+            font-weight: bold;
+            padding: 0 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* *** DODANO: Stil za centriranje legende ispod ormara *** */
+        .rack-legend {
+            text-align: center;
+            margin-top: -10px; /* Malo približimo tekst ormaru */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">RackMaster</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ormari">Ormari</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hardver">Hardver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vizualizacije">Vizualizacije</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Vizualizacija Ormara: <span id="ormar-ime"></span></h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="rack-container" id="rack-visualization">
+                    <!-- Rack uniti i oprema će se dinamički učitavati ovdje -->
+                </div>
+                <div class="rack-legend">
+                    Visina ormara: <span id="rack-height-units"></span> U
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="mb-3">Detalji Opreme u Ormaru</h3>
+                <ul id="equipment-details-list" class="list-group">
+                    <!-- Detalji opreme će se učitavati ovdje -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
