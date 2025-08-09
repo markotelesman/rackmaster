@@ -23,7 +23,7 @@ Za pokretanje aplikacije potrebno je imati instaliran **Docker** i **Docker Comp
 
 1.  **Klonirajte repozitorij:**
     ```bash
-    git clone [https://github.com/tvoje-ime/rackmaster-projekt.git](https://github.com/tvoje-ime/rackmaster-projekt.git)
+    git clone https://github.com/tvoje-ime/rackmaster.git
     cd rackmaster-projekt
     ```
 
@@ -40,3 +40,13 @@ Za pokretanje aplikacije potrebno je imati instaliran **Docker** i **Docker Comp
     ```
 
 4.  Aplikacija je sada dostupna u vašem pregledniku na adresi **[http://localhost:5000](http://localhost:5000)**.
+
+## Tehnologije
+
+- **Backend**: JavaScript, Python, Flask, PonyORM, 
+- **Frontend**: HTML, CSS
+- **Docker**: Dockerfile, Docker Compose
+
+## Autor
+
+**Marko Telešman**, 0035167326, FIPU 2024/2025
