@@ -6,7 +6,7 @@ RackMaster je web aplikacija razvijena kao projekt za kolegij Informacijski sust
 
 ## UseCase dijagram
 
-![UseCase dijagram](UseCase RackMaster.png)
+![UseCase dijagram](UseCase_RackMaster.png)
 
 ## Funkcionalnosti
 
