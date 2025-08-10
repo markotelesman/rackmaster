@@ -14,6 +14,7 @@ RackMaster je web aplikacija razvijena kao projekt za kolegij Informacijski sust
 * **Upravljanje hardverom (CRUD):** Dodavanje, pregled, ažuriranje i brisanje hardverskih komponenti (serveri, switchevi, routeri...).
 * **Povezivanje opreme:** Svaki komad hardvera je povezan s točno određenim ormarom.
 * **Vizualizacija popunjenosti ormara:** Grafički prikaz popunjenosti svakog ormara po rack unitima (U).
+* **Vizualizacija popunjenosti ormara:** Grafički prikaz popunjensti svakog ormara u postocima.
 * **Vizualizacija statusa opreme:** Grafički prikaz statusa sve opreme (Aktivno, Neaktivno, Servis).
 * **Sigurnosna provjera:** Onemogućeno brisanje ormara koji u sebi sadrži hardver.
 
