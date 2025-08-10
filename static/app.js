@@ -392,16 +392,39 @@ async function populateOrmarSelect() {
 function renderStatusChart(data) {
     const ctx = document.getElementById('statusChart')?.getContext('2d');
     if (!ctx) return;
+
+    // *** OVDJE JE KLJUČNA IZMJENA ***
+    // 1. Definiramo fiksnu mapu boja za svaki status
+    const colorMap = {
+        'Aktivan': '#28a745',   // Zelena
+        'Servis': '#ffc107',    // Žuta
+        'Neaktivan': '#6c757d', // Siva
+    };
+
+    const labels = Object.keys(data);
+    const chartData = Object.values(data);
+
+    // 2. Kreiramo niz boja na temelju labela koje su stigle iz API-ja
+    // Ako se pojavi neki novi status, dobit će zadanu sivu boju
+    const backgroundColors = labels.map(label => colorMap[label] || '#cccccc');
+
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: Object.keys(data),
+            labels: labels,
             datasets: [{
-                data: Object.values(data),
-                backgroundColor: ['#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6c757d']
+                data: chartData,
+                backgroundColor: backgroundColors // Koristimo novokreirani niz boja
             }]
         },
-        options: { responsive: true, plugins: { legend: { position: 'top' } } }
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
     });
 }
 
