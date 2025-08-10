@@ -27,19 +27,13 @@ Za pokretanje aplikacije potrebno je imati instaliran **Docker** i **Docker Comp
     cd rackmaster-projekt
     ```
 
-2.  **Izgradite Docker sliku:**
+2.  **Izgradite Docker sliku i pokrenite aplikaciju:**
     Ova naredba će izgraditi Docker image prema uputama iz `Dockerfile`-a.
     ```bash
-    docker-compose build
+    docker-compose up --build
     ```
 
-3.  **Pokrenite aplikaciju:**
-    Ova naredba će pokrenuti kontejner. Aplikacija će se pokrenuti s testnim podacima.
-    ```bash
-    docker-compose up
-    ```
-
-4.  Aplikacija je sada dostupna u vašem pregledniku na adresi **[http://localhost:5000](http://localhost:5000)**.
+3.  Aplikacija je sada dostupna u vašem pregledniku na adresi **[http://localhost:5000](http://localhost:5000)**.
 
 ## Tehnologije
 
