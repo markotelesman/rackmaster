@@ -277,7 +277,6 @@ function setupOrmariEventListeners() {
             ormarModal.show();
         }
         if (target.classList.contains('btn-delete-ormar')) {
-            // *** OVDJE JE KLJUČNA IZMJENA ***
             if (confirm('Želite li obrisati ovaj ormar? Brisanje će uspjeti samo ako je ormar prazan.')) {
                 try {
                     const response = await fetch(`${API_URL}/ormar/${id}`, { method: 'DELETE' });
@@ -393,19 +392,15 @@ function renderStatusChart(data) {
     const ctx = document.getElementById('statusChart')?.getContext('2d');
     if (!ctx) return;
 
-    // *** OVDJE JE KLJUČNA IZMJENA ***
-    // 1. Definiramo fiksnu mapu boja za svaki status
     const colorMap = {
-        'Aktivan': '#28a745',   // Zelena
-        'Servis': '#ffc107',    // Žuta
-        'Neaktivan': '#6c757d', // Siva
+        'Aktivan': '#28a745',  
+        'Servis': '#ffc107',    
+        'Neaktivan': '#6c757d', 
     };
 
     const labels = Object.keys(data);
     const chartData = Object.values(data);
 
-    // 2. Kreiramo niz boja na temelju labela koje su stigle iz API-ja
-    // Ako se pojavi neki novi status, dobit će zadanu sivu boju
     const backgroundColors = labels.map(label => colorMap[label] || '#cccccc');
 
     new Chart(ctx, {
@@ -414,7 +409,7 @@ function renderStatusChart(data) {
             labels: labels,
             datasets: [{
                 data: chartData,
-                backgroundColor: backgroundColors // Koristimo novokreirani niz boja
+                backgroundColor: backgroundColors
             }]
         },
         options: {

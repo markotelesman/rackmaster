@@ -4,10 +4,8 @@ from flask_cors import CORS
 from pony.orm import db_session, select, commit, count
 from datetime import datetime
 
-# Uvozimo bazu podataka i modele
 from baza import db, Ormar, Hardver
 
-# Inicijalizacija Flask aplikacije
 app = Flask(__name__)
 CORS(app)
 
@@ -135,12 +133,9 @@ def delete_ormar(id):
     if not ormar:
         return jsonify({'error': 'Ormar nije pronađen'}), 404
     
-    # PROVJERA: Provjeravamo postoji li hardver povezan s ormarom
     if count(ormar.hardver) > 0:
-        # Ako postoji hardver, vraćamo grešku i ne brišemo ormar
-        return jsonify({'error': 'Ormar nije prazan i ne može se obrisati. Prvo uklonite sav hardver.'}), 409 # 409 Conflict je prikladan status
+        return jsonify({'error': 'Ormar nije prazan i ne može se obrisati. Prvo uklonite sav hardver.'}), 409
 
-    # Ako je ormar prazan, brišemo ga
     ormar.delete()
     commit()
     return jsonify({'message': 'Prazan ormar je uspješno obrisan.'}), 200
@@ -199,7 +194,6 @@ def update_hardver(id):
         if 'datum_instalacije' in data and data.get('datum_instalacije'):
             data['datum_instalacije'] = datetime.fromisoformat(data['datum_instalacije'].replace('Z', ''))
         else:
-             # Ukloni ključ ako je None ili ga nema, da ga Pony ne pokuša ažurirati
             data.pop('datum_instalacije', None)
 
         if 'datum_servisa' in data and data['datum_servisa']:
