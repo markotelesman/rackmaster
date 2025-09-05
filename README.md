@@ -24,7 +24,7 @@ Za pokretanje aplikacije potrebno je imati instaliran **Docker** i **Docker Comp
 
 1.  **Klonirajte repozitorij:**
     ```bash
-    git clone https://github.com/tvoje-ime/rackmaster.git
+    git clone https://github.com/markotelesman/rackmaster.git
     cd rackmaster-projekt
     ```
 
